@@ -13,7 +13,7 @@ v.cal = function (f) {
   vMinMax = new Vec3;
    if (!f) {
      // check for stored cal
-     var a = eval(require("storage").read("cal"));
+     var a = eval(require("Storage").read("cal"));
      if (a) {
        v.vCal.x = a.x; vCal.y = a.y; vCal.z = a.z;
        return;
@@ -30,7 +30,7 @@ v.cal = function (f) {
      // adjust the ranges to find the mid point
      
      // save the clibration data to storage
-  require("storage").write("cal", v.vCal)
+  require("Storage").write("cal", v.vCal)
  cobnsole.log("new calibrating...");
   return;
 }
