@@ -6,7 +6,7 @@ PuckJs is a cool programmable bluetooth LE v5 beacon. It is programmed in Javasc
 
  [http://www.espruino.com/Puck.js](http://www.espruino.com/Puck.js)
 
-[Media controller example]{...}
+[Media remote using Mag3110Cal](http://forum.espruino.com/conversations/335649/)
  
 ## How Mag3110Cal works
 The reading from the uncalibrated mag sensor are not zero based and can't be used to calculate rotation of the puck. To calibrate I find and store the highest and lowest axis readings while rotating the puck in all directions. I then calculate the mid point between these for each axes. I then provide a method that when passes an uncalibrated reading returns a calibrated reading with the addition of a compass heading and the rotation since the last calibration with a correction for crossing 0 and 360.  Calibrate the puck away from metal and strong magnets.
