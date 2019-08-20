@@ -20,7 +20,7 @@ v.cal = function (f) {
      } 
    }
      // wait for a button press to stop
-      cobnsole.log("done calibrating...");
+      console.log("done calibrating...");
      
      // get raw mag value and find ranges
      
@@ -32,16 +32,16 @@ v.cal = function (f) {
      
      // save the clibration data to storage
   require("Storage").write("cal", v.vCal)
- cobnsole.log("new calibrating...");
+ console.log("new calibrating...");
   return;
-}
+};
 
 
 v.ajust = function (doCal) {
   // calibrate the raw data
   // find the heading
   // find thge rotation
-  cobnsole.log("adjusted...");
+  console.log("adjusted...");
 return v.vCal;
 };
 
