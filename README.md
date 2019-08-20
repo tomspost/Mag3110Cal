@@ -1,4 +1,4 @@
-## Mag3110Cal
+## Mag3110Cal -=WORK IN PROGRESS!=-
 Calibrate and use the MAG3110 Magnetometer on the PuckJS IOT beacon
 
 ## What is the PuckJS
