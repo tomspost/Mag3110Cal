@@ -18,6 +18,7 @@ v.cal = function (f) {
        v.vCal.x = a.x; vCal.y = a.y; vCal.z = a.z;
        return;
      } 
+   }
      // wait for a button press to stop
       cobnsole.log("done calibrating...");
      
