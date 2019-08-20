@@ -13,10 +13,10 @@ The reading from the uncalibrated mag sensor are not zero based and can't be use
 
 During calibration the puck will flash red and green. Just rotate the puck in all directions until you only see green flashes. Then press the button to end calibration.
 ```javascript
-magCal = require("...");
+var magCal = require("https://raw.githubusercontent.com/tomspost/Mag3110Cal/master/mag3110cal.js");
 
    // force re-calibration (false will use the last stored calibration if available)
-MagCal.cal(true);
+magCal.cal(true);
 
 puck.magOn();
 
