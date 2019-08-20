@@ -10,7 +10,7 @@ var v = {};
   
 v.cal = function (f) {
   // Calibrate the mag sensor or load a saved calibration.
-  vMinMax = new Vec3;
+  //////vMinMax = new Vec3;
    if (!f) {
      // check for stored cal
      var a = eval(require("Storage").read("cal"));
