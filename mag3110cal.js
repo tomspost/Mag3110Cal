@@ -1,19 +1,47 @@
 // working code to go here!
-var Vec3 = require('Vec3');
+var v = {};
+    v.Vec3 = require('Vec3');
+    v.vCal = new v.Vec3;
+    v.raw = {};
+    v.caled = {};
+    v.heading = 0;
+    v.rotation = 0;
 
-//lunch needed bofre continuing...
-
-function calibrate () {
   
-  
+v.cal = function (f) {
+  // Calibrate the mag sensor or load a saved calibration.
+  vMinMax = new Vec3;
+   if (!f) {
+     // check for stored cal
+     var a = eval(require("storage").read("cal"));
+     if (a) {
+       v.vCal.x = a.x; vCal.y = a.y; vCal.z = a.z;
+       return;
+     } 
+     // wait for a button press to stop
+      cobnsole.log("done calibrating...");
+     
+     // get raw mag value and find ranges
+     
+     // flash the LEDS
+     
+     // find the extreams 
+     
+     // adjust the ranges to find the mid point
+     
+     // save the clibration data to storage
+  require("storage").write("cal", v.vCal)
+ cobnsole.log("new calibrating...");
+  return;
 }
 
 
-function mag3110Cal (doCal) {
-  
-  
-  
+v.ajust = function (doCal) {
+  // calibrate the raw data
+  // find the heading
+  // find thge rotation
+  cobnsole.log("adjusted...");
+return v.vCal;
 };
 
-
-exports.mag3110Cal;
+exports = v;
