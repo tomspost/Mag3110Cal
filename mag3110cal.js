@@ -41,7 +41,7 @@ v.ajust = function (doCal) {
   // calibrate the raw data
   // find the heading
   // find thge rotation
-  console.log("adjusted...");
+  console.log("UPDATED adjusted...");
 return v.vCal;
 };
 
