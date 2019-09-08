@@ -20,7 +20,7 @@ v.cal = function (f) {
      } 
    }
      // wait for a button press to stop
-      console.log("done calibrating...");
+      console.log("done calibrating...UPDATED");
      
      // get raw mag value and find ranges
      
