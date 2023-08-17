@@ -5,7 +5,7 @@ var v = {};
 v.cal = function (f) {
   var vMin = new v.Vec3();
   var vMax = new v.Vec3();
-  var sMax = 0;  
+  var sMax = 0;
   var sMin = 0;
 
   // check for and use stored values 
@@ -20,25 +20,43 @@ v.cal = function (f) {
   console.log("Rotate the puck in all directions \n until there are no red flashes \n then press button");
   v.running = true;
   Puck.magOn(10);
+  var firstPass = true;
+
   Puck.on('mag', function(xyz) {
     if (!v.running) return;
+
+    if (firstPass) {
+      sMin = vMin.mag();
+      firstPass = false;
+    }
+
     vMin = vMin.min(xyz);
     vMax = vMax.max(xyz);
-    if ((sMax <  vMax.mag()) || (sMin > vMin.mag())) {
-      if (!v.running) return;
-      sMin = vMin.mag();
+
+    if (vMax.mag() > sMax) {
       sMax = vMax.mag();
       digitalPulse(LED1,1,100);
-    } else { 
+    }
+
+    else if (vMin.mag() < sMin) {
+      sMin = vMin.mag();
+      digitalPulse(LED1,1,100);
+    }
+
+    else {
       digitalPulse(LED2,1,50);
     }
   });
-  
+
   // wait for a button press to stop Calibrating
   setWatch(function(e) {
     console.log("Calibration complete");
     v.zero = new v.Vec3((vMin.x + vMax.x)/2,(vMin.y + vMax.y)/2,(vMin.z + vMax.z)/2);
     require("Storage").write("cal", v.zero);
+    require("Storage").write("calMinMax", {
+      min: sMin,
+      max: sMax
+    });
     v.running = false;
   }, BTN, { repeat: false, edge: 'rising', debounce: 50 });
 };
